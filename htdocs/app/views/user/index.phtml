@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="panel-default">
+            <div class="panel-body">
+                <form role="form" action="/user/login" method="POST">
+                    <div class="form-group">
+                        <label for="email">Email address</label>
+                        <input name="email" type="email" class="form-control" id="email" placeholder="Enter email">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input name="password" type="password" class="form-control" id="password" placeholder="Password">
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="rememberme"> Remember me
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+                <h3>You don't have an account yet? <a href="/user/signup">Just sign up!</a></h3>
+            </div>
+        </div>
+    </div>
+</div>

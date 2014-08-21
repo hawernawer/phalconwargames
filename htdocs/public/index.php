@@ -33,6 +33,15 @@ try{
         return $config;
     });
 
+    //Setup the Sessions
+    $di->setShared("session", function(){
+
+        $session = new \Phalcon\Session\Adapter\Files();
+        $session->start();
+        return $session;
+
+    });
+
     //Setup the database connection
     $di->set("db", function() use ($config){
 

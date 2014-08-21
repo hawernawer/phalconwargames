@@ -4,15 +4,18 @@
 
 <head>
     <meta charset="utf-8" >
-    <title>::Phalcon Base</title>
+    <?php
+        echo Phalcon\Tag::getTitle();
+        echo Phalcon\Tag::stylesheetLink('css/bootstrap.min.css');
+    ?>
 </head>
 
 <body>
 
-<?php
-echo $this->getContent();
-?>
-
+    <?php
+        echo $this->getContent();
+        echo Phalcon\Tag::javascriptInclude('js/bootstrap.min.js');
+    ?>
 </body>
 
 </html>
