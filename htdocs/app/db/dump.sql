@@ -52,9 +52,12 @@ CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `email` varchar(45) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `name` varchar(45) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  `username` varchar(45) NOT NULL,
+  `role` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `email_UNIQUE` (`email`),
+  UNIQUE KEY `username_UNIQUE` (`username`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -63,7 +66,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'agpituk@gmail.com','1234','Alejandro Gonzalez');
+INSERT INTO `user` VALUES (1,'agpituk@gmail.com','$2a$08$F0kk5/0uU.MrwIwxiVTpF.hmNb4bW/P4Wm0Mnp5CRRnOH6xZPtMU.','Alejandro Gonzalez','god'),(2,'hawernawer@gmail.com','$2a$08$gzskc1oRL6oPx9t20pArQ.ggLzPZ14Oges48XHg2z0F1k3tpYDaBC','hawernawer','user');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -100,4 +103,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-08-18 14:27:10
+-- Dump completed on 2014-08-22 15:00:21

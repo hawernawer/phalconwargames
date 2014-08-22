@@ -23,7 +23,8 @@ try{
     //Register autoload directories
     $loader->registerDirs(array(
         $config->appDirs->controllers,
-        $config->appDirs->models
+        $config->appDirs->models,
+        $config->appDirs->plugins
     ))->register();
 
     //Initialze DI
@@ -63,6 +64,27 @@ try{
         return $view;
     });
 
+    //Setup the flash Service
+    $di->set("flash", function(){
+        $flash = new \Phalcon\Flash\Session();
+        return $flash;
+    });
+
+    //Setup custom dispatcher
+    $di->set("dispatcher", function() use ($di){
+
+        $eventsmanager = $di->getShared("eventsManager");
+
+        $permission = new Permission();
+
+        $eventsmanager->attach("dispatch",$permission);
+
+        $dispatcher = new \Phalcon\Mvc\Dispatcher();
+        $dispatcher->setEventsManager($eventsmanager);
+
+        return $dispatcher;
+
+    });
     //Initialize application
     $application = new \Phalcon\Mvc\Application($di);
 

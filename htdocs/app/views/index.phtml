@@ -13,7 +13,21 @@
 <body>
 
     <?php
+        $messages = $this->flashSession->getMessages();
+        if(isset($messages['error']) && count($messages['error']) != 0){
+            foreach($messages['error'] as $message){?>
+            <div class="container">
+                <div class="alert alert-danger alert-dismissable" data-dismiss="alert" role="alert">
+                    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <?=$message?>
+                </div>
+            </div>
+
+        <?php
+            }
+        }
         echo $this->getContent();
+        echo Phalcon\Tag::javascriptInclude('//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js');
         echo Phalcon\Tag::javascriptInclude('js/bootstrap.min.js');
     ?>
 </body>
