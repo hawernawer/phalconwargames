@@ -1,12 +1,12 @@
 <?php
 
-class UsersCampaigns extends \Phalcon\Mvc\Model
+class Player extends \Phalcon\Mvc\Model
 {
 
     public function getSource()
     {
 
-        return "users_campaigns";
+        return "player";
 
     }
 
