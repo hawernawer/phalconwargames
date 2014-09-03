@@ -22,7 +22,7 @@ class UserController extends ControllerBase
 
     public function loginAction()
     {
-
+        $this->view->disable();
 
         if ($this->request->isPost() == true) {
 
@@ -35,8 +35,13 @@ class UserController extends ControllerBase
                 if($this->security->checkHash($password, $user->password))
                 {
                     $this->registerSession($user);
+                    $this->flashSession->success('Welcome back');/*TODO: THIS IS NOT WORKING*/
                     $this->response->redirect('');
-                    // TODO Tell user they are logged in
+
+                }else{
+                    $this->registerSession($user);
+                    $this->flashSession->error('Bad!');/*TODO: THIS IS NOT WORKING*/
+                    $this->response->redirect('');
                 }
             }
 
@@ -70,16 +75,15 @@ class UserController extends ControllerBase
             $user = User::findFirst("email = '{$email}'");
             if($user instanceof User)
             {
-
+                 $this->flashSession->error('That email is already registered');
                  $this->response->redirect('user/');
-                 // TODO Tell user that email is already registered
 
             }
             $user = User::findFirst("username = '{$username}'");
             if($user instanceof User)
             {
+                $this->flashSession->error('That username is already registered');
                 $this->response->redirect('user/');
-                // TODO Tell user that username is already registered
 
             }
             //Now we are sure the user doesn't exists, going to create it
