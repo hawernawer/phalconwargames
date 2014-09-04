@@ -35,12 +35,12 @@ class UserController extends ControllerBase
                 if($this->security->checkHash($password, $user->password))
                 {
                     $this->registerSession($user);
-                    $this->flashSession->success('Welcome back');/*TODO: THIS IS NOT WORKING*/
+                    $this->flashSession->success('Welcome back');
                     $this->response->redirect('');
 
                 }else{
                     $this->registerSession($user);
-                    $this->flashSession->error('Bad!');/*TODO: THIS IS NOT WORKING*/
+                    $this->flashSession->error('Bad!');
                     $this->response->redirect('');
                 }
             }
@@ -95,14 +95,16 @@ class UserController extends ControllerBase
                 $user->email = $email;
                 $user->password = $this->security->hash($password);
                 $user->role = "user";
-                $this->response->redirect('user/');
+                $this->response->redirect('');
 
                 $user->create();
+                $this->flashSession->success('You have been registered successfully! Please log in now');
 
             }
         }else{
 
-            $this->response->redirect('user/');
+            $this->response->redirect('');
+            $this->flashSession->error('What are you doing here?');
         }
 
     }

@@ -1,11 +1,14 @@
-<h1>Hello</h1>
+<h1>Campaigns dashboard</h1>
+<h2>Campaign list</h2>
 <?php
     if(isset($campaigns)){
         foreach($campaigns as $campaign){
             echo $campaign->id." - ";
             echo $campaign->description." - ";
             echo Phalcon\Tag::linkTo("campaign/join/".$campaign->id,"JOIN");
+            echo "<br>";
 
         }
     }
 ?>
+<h3>Or.. <?= Phalcon\Tag::linkTo('campaign/new','Create a new campaign')?></h2>
