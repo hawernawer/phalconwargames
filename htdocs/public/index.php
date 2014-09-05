@@ -24,7 +24,8 @@ try{
     $loader->registerDirs(array(
         $config->appDirs->controllers,
         $config->appDirs->models,
-        $config->appDirs->plugins
+        $config->appDirs->plugins,
+        $config->appDirs->library
     ))->register();
 
     //Initialze DI
@@ -70,6 +71,13 @@ try{
         return $flash;
     });
 
+
+    //Setup the Components
+
+    $di->set("elements",function(){
+       $elements = new Elements();
+        return $elements;
+    });
     //Setup custom dispatcher
     $di->set("dispatcher", function() use ($di){
 
