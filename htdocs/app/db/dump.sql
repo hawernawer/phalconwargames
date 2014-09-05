@@ -76,7 +76,7 @@ CREATE TABLE `campaign` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `description` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -85,7 +85,7 @@ CREATE TABLE `campaign` (
 
 LOCK TABLES `campaign` WRITE;
 /*!40000 ALTER TABLE `campaign` DISABLE KEYS */;
-INSERT INTO `campaign` VALUES (1,'First campaign!');
+INSERT INTO `campaign` VALUES (1,'First campaign!'),(2,'Second campaign!'),(3,'Third campaign!'),(4,'Hey! another campaign!'),(5,'Another one!');
 /*!40000 ALTER TABLE `campaign` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -101,7 +101,7 @@ CREATE TABLE `connection` (
   `from_province` int(11) NOT NULL,
   `to_province` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -110,6 +110,7 @@ CREATE TABLE `connection` (
 
 LOCK TABLES `connection` WRITE;
 /*!40000 ALTER TABLE `connection` DISABLE KEYS */;
+INSERT INTO `connection` VALUES (1,1,2),(2,1,3),(3,1,4),(4,2,1),(5,2,3),(6,2,4),(7,3,1),(8,3,2),(9,3,4),(10,3,5),(11,3,6),(12,4,1),(13,4,2),(14,4,3),(15,4,5),(16,4,6),(17,5,3),(18,5,4),(19,5,6),(20,6,3),(21,6,4),(22,6,5);
 /*!40000 ALTER TABLE `connection` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -145,12 +146,12 @@ DROP TABLE IF EXISTS `player`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `player` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_user` int(11) NOT NULL,
   `id_campaign` int(11) NOT NULL,
   `resources` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -159,6 +160,7 @@ CREATE TABLE `player` (
 
 LOCK TABLES `player` WRITE;
 /*!40000 ALTER TABLE `player` DISABLE KEYS */;
+INSERT INTO `player` VALUES (47,1,1,200),(48,2,1,200);
 /*!40000 ALTER TABLE `player` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -174,7 +176,7 @@ CREATE TABLE `province` (
   `name` varchar(45) NOT NULL,
   `number` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -183,6 +185,7 @@ CREATE TABLE `province` (
 
 LOCK TABLES `province` WRITE;
 /*!40000 ALTER TABLE `province` DISABLE KEYS */;
+INSERT INTO `province` VALUES (1,'Exeter','1'),(2,'London','2'),(3,'Bristol','3'),(4,'Manchester','4'),(5,'Brighton','5'),(6,'Dover','6');
 /*!40000 ALTER TABLE `province` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -334,7 +337,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'agpituk@gmail.com','$2a$08$F0kk5/0uU.MrwIwxiVTpF.hmNb4bW/P4Wm0Mnp5CRRnOH6xZPtMU.','Alejandro Gonzalez','god'),(2,'hawernawer@gmail.com','$2a$08$gzskc1oRL6oPx9t20pArQ.ggLzPZ14Oges48XHg2z0F1k3tpYDaBC','hawernawer','user');
+INSERT INTO `user` VALUES (1,'agpituk@gmail.com','$2a$08$F0kk5/0uU.MrwIwxiVTpF.hmNb4bW/P4Wm0Mnp5CRRnOH6xZPtMU.','Alejandro Gonzalez','god');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -347,4 +350,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-09-02 11:11:42
+-- Dump completed on 2014-09-05 17:19:28
