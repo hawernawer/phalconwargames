@@ -9,6 +9,8 @@ class Permission extends \Phalcon\Mvc\User\Plugin
 
     protected $userResources = array(
         'user' => array('*'),
+        'province' => array('*'),
+        'order' => array('*'),
         'campaign' => array('*')
     );
 

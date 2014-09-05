@@ -65,9 +65,14 @@ try{
         return $view;
     });
 
-    //Setup the flash Service
-    $di->set("flash", function(){
-        $flash = new \Phalcon\Flash\Session();
+    //Setup the flashSession Service
+    $di->set("flashSession", function(){
+        $flash = new \Phalcon\Flash\Session(array(
+            'error' => 'alert alert-danger alert-dismissible" role="alert" data-dismiss="alert',
+            'success' => 'alert alert-success alert-dismissible" role="alert" data-dismiss="alert',
+            'notice' => 'alert alert-notice alert-dismissible" role="alert" data-dismiss="alert',
+            'warning' => 'alert alert-warning alert-dismissible" role="alert" data-dismiss="alert'
+        ));
         return $flash;
     });
 
