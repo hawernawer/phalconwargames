@@ -16,7 +16,7 @@ class Elements extends Component
 
                        <?php
                             echo "<li>".Phalcon\Tag::linkTo('campaign/','Campaigns dashboard')."</li>";
-                            echo "<li>".Phalcon\Tag::linkTo('user/','User dashboard')."</li>";
+                            echo "<li>".Phalcon\Tag::linkTo('user/dashboard','User dashboard')."</li>";
                             echo "<li>".Phalcon\Tag::linkTo('user/logout','Logout')."</li>";
                         ?>
 

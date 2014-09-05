@@ -35,7 +35,7 @@ class UserController extends ControllerBase
                 {
                     $this->registerSession($user);
                     $this->flashSession->success('Welcome back');
-                    $this->response->redirect('');
+                    $this->response->redirect('user/dashboard');
 
                 }else{
                     $this->registerSession($user);
@@ -61,7 +61,16 @@ class UserController extends ControllerBase
 
 
     }
+    public function howtoAction()
+    {
+        echo "Here you will learn how to play";
 
+    }
+    public function dashboardAction()
+    {
+        echo "Here is your dashboard!";
+
+    }
     public function registerAction()
     {
         if ($this->request->isPost() == true) {
