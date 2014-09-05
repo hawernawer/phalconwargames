@@ -9,7 +9,6 @@ class UserController extends ControllerBase
             $this->response->redirect('');
         }
     }
-
     protected function registerSession($user)
     {
         $this->session->set("auth", array(
