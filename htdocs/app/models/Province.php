@@ -11,13 +11,7 @@ class Province extends \Phalcon\Mvc\Model
     }
 
 
-    public function getConnections(){
-
-        $connections= Connection::find(array(
-            "from_province = {$this->id}"
-        ));
-
-        return $connections;
-
+    public function initialize(){
+        $this->hasMany('connections','Connection','from_province');
     }
 }

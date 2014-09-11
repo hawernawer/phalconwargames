@@ -1,0 +1,17 @@
+<h1>Order create dashboard</h1>
+
+<?php
+if(isset($provinces_from)){
+    foreach($provinces_from as $province){
+        echo $province->id_province." - ";
+        echo $province->points." - ";
+
+
+        //echo Phalcon\Tag::linkTo("campaign/join/".$campaign->id,"JOIN");
+        echo "<br>";
+
+    }
+}else{
+    echo "Not set";
+}
+?>

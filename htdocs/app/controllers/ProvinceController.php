@@ -6,12 +6,10 @@ class ProvinceController extends ControllerBase
     public function indexAction()
     {
 
-        $province = Province::findFirst();
+        $provinces = Province::find();
 
-        $conections = $province->getConnections();
-
-        foreach($conections as $connection){
-            echo $connection->from_province."->".$connection->to_province."<br>";
+       foreach($provinces->connection as $connection){
+            echo $connection->to_province;
         }
 
 

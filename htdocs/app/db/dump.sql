@@ -125,6 +125,8 @@ CREATE TABLE `order` (
   `id` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
   `id_turn` int(11) NOT NULL,
+  `province_from` varchar(45) DEFAULT NULL,
+  `province_to` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -151,7 +153,7 @@ CREATE TABLE `player` (
   `id_campaign` int(11) NOT NULL,
   `resources` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -204,7 +206,7 @@ CREATE TABLE `province_status` (
   `points` int(11) NOT NULL DEFAULT '0',
   `id_random` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -213,6 +215,7 @@ CREATE TABLE `province_status` (
 
 LOCK TABLES `province_status` WRITE;
 /*!40000 ALTER TABLE `province_status` DISABLE KEYS */;
+INSERT INTO `province_status` VALUES (1,1,1,1,300,0),(2,6,2,1,400,0);
 /*!40000 ALTER TABLE `province_status` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -328,7 +331,7 @@ CREATE TABLE `user` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `email_UNIQUE` (`email`),
   UNIQUE KEY `username_UNIQUE` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -350,4 +353,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-09-05 17:19:28
+-- Dump completed on 2014-09-11 14:46:31
