@@ -5,7 +5,9 @@ if(isset($provinces_from)){
     foreach($provinces_from as $province){
         echo $province->id_province." - ";
         echo $province->points." - ";
-
+        foreach($province->connection as $connection){
+            echo ":".$connection->to_province;
+        }
 
         //echo Phalcon\Tag::linkTo("campaign/join/".$campaign->id,"JOIN");
         echo "<br>";

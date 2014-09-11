@@ -20,6 +20,7 @@ class OrderController extends ControllerBase
         $provinces = $provincestatus->getProvinceStatusWithPointsPerPlayer($auth["id"]);
 
 
+
         $this->view->setVar('provinces_from',$provinces);
 
     }

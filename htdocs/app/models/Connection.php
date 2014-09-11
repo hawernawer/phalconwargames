@@ -4,7 +4,7 @@ class Connection extends \Phalcon\Mvc\Model
 {
 
     public $from_province;
-
+    public $id;
     public function getSource()
     {
 
@@ -14,7 +14,7 @@ class Connection extends \Phalcon\Mvc\Model
 
     public function initialize()
     {
-        $this->hasMany('from_province','Province','id');
+        $this->belongsTo('from_province','Province','id');
     }
 
 

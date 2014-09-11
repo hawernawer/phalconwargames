@@ -2,6 +2,7 @@
 
 class ProvinceStatus extends \Phalcon\Mvc\Model
 {
+    public $id_province;
 
     public function getSource()
     {
@@ -10,14 +11,9 @@ class ProvinceStatus extends \Phalcon\Mvc\Model
 
     }
 
-    public function getProvinceStatusWithPointsPerPlayer($player_id)
+
+    public function initialize()
     {
-        $provinces = ProvinceStatus::find(array(
-            "id_player = {$player_id} AND points > 0"
-        ));
-        return $provinces;
-
+        $this->belongsTo('id_province','Province','id');
     }
-
-
 }
