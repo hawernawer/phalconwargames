@@ -14,7 +14,11 @@ class ProvinceController extends ControllerBase
                 echo $connection->to_province;
 
         }
+        foreach($province->provinceStatus as $status)
+        {
+                echo $status->points;
 
+        }
 
     }
 }

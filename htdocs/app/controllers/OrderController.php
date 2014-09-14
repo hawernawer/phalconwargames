@@ -16,12 +16,10 @@ class OrderController extends ControllerBase
             $this->response->redirect('user/dashboard');
             return false;
         }
-        $provincestatus = new ProvinceStatus();
-        $provinces = $provincestatus->getProvinceStatusWithPointsPerPlayer($auth["id"]);
 
 
 
-        $this->view->setVar('provinces_from',$provinces);
+        //$this->view->setVar('provinces_from',$provinces);
 
     }
 
