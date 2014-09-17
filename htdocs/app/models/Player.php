@@ -2,7 +2,7 @@
 
 class Player extends \Phalcon\Mvc\Model
 {
-
+    public $id;
     public function getSource()
     {
 
@@ -27,5 +27,25 @@ class Player extends \Phalcon\Mvc\Model
             return false;
         }
     }
+    public function retrievePlayerWithID($id){
+        $player = Player::find(array(
+           "id = {$id}"
+        ));
+        return $player;
+    }
+    public function getProvincesWithPoints($id){
+        $provinceStatus = ProvinceStatus::findFirst(array(
+           "id_player = {$id}"
+        ));
+        $provinces = Province::find(array(
+            "id = {$provinceStatus->id_province}"
+        ));
+        /**
+         * TODO I have to do the method aboved in a proper way, I need to return the array and
+         * search the array of provinceStatus. Research about models
+         */
+        return $provinces;
+    }
+
 
 }
